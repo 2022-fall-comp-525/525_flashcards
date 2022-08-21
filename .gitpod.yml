@@ -2,6 +2,8 @@ image: ubuntu:latest
 
 tasks:
   - before: |
+      apt update
+      apt-get install -y git sudo python3 python3-pip
       printf 'export PATH="%s:$PATH"\n' "~/.local/bin" >> $HOME/.bashrc && exit
   - init: |
       pip install pylint
