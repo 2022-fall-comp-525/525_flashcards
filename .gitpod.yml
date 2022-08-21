@@ -1,12 +1,11 @@
-image: ubuntu:latest
+image:
+  file: .gitpod.Dockerfile
 
 tasks:
   - before: |
-      apt update
-      apt-get install -y git sudo python3 python3-pip
       printf 'export PATH="%s:$PATH"\n' "~/.local/bin" >> $HOME/.bashrc && exit
   - init: |
-      pip install pylint
+      pip3 install pylint
   - command: |
       source ~/.bashrc
       clear
