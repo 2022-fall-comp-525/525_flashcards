@@ -32,22 +32,31 @@
           <select class="form-control" id="chapter-select">
             <option value="-1">Please Select Chapter</option>
             <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
           </select>
         </div>
       </form>
     </div>
-    <div class="flip-card" id="card-display">
-      <div class="flip-card-inner">
-        <div class="flip-card-front" id="front"></div>
-        <div class="flip-card-back" id="back"></div>
+
+    <div class="card-container">
+      <div class="flip-card align-middle" id="card-display">
+        <div class="flip-card-inner">
+          <div class="flip-card-front" id="front"></div>
+          <div class="flip-card-back" id="back"></div>
+        </div>
+      </div>
+      <div class="row controls" id="controls">
+        <div class="col-sm-3"><button type="button" class="btn btn-primary" id="btn-previous">Previous</button></div>
+        <div class="col-sm-3"><button type="button" class="btn btn-primary" id="btn-next">Next</button></div>
+        <p>Keyboard controls supported.</p>
+        <ul>
+          <li>Up Arrow - Flip Card Up</li>
+          <li>Down Arrow - Flip Card Down</li>
+          <li>Right Arrow - Next Card</li>
+          <li>Left Arrow - Previous Card</li>
+        </ul>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-3"><button type="button" class="btn btn-primary" id="btn-previous">Previous</button></div>
-      <div class="col-sm-3"><button type="button" class="btn btn-primary" id="btn-next">Next</button></div>
-    </div>
+    
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     <script 

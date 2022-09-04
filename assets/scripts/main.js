@@ -19,6 +19,9 @@ $(document).ready(function () {
     init();
 });
 
+/**
+ * Initialize the application
+ */
 function init(){
     init_controls();
 }
@@ -38,6 +41,7 @@ function init_controls(){
 
     init_chapter_select();
     init_previous_and_next_buttons();
+    init_keyboard_actions();
 }
 
 /**
@@ -53,12 +57,37 @@ function init_chapter_select(){
     });
 }
 
+/**
+ * Adds event listeners to the previous and next buttons
+ */
 function init_previous_and_next_buttons(){
     controls.btnPrevious.click(function (){
         change_card(-1);
     });
     controls.btnNext.click(function (){
         change_card(1);
+    });
+}
+
+/**
+ * Detects and switchs off of keyboard inputs
+ */
+function init_keyboard_actions(){
+    document.addEventListener('keydown', function(event) {
+        switch(event.key){
+            case "ArrowRight":
+                change_card(1);
+                break;
+            case "ArrowLeft":
+                change_card(-1);
+                break;
+            case "ArrowUp":
+                $('.flip-card-inner').addClass("flip-animation");
+                break;
+            case "ArrowDown":
+                $('.flip-card-inner').removeClass("flip-animation");
+                break;
+        }
     });
 }
 
@@ -91,6 +120,9 @@ function change_card(delta){
     display_card();
 }
 
+/**
+ * Handles changing the card's front and back text
+ */
 function display_card(){
     let card = currentChapterCards[currentCardIndex];
     if(card != undefined){
